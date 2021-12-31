@@ -19,41 +19,6 @@ const steps = [
     },
 ];
 
-function Child({ clicks, update }) {
-    const [foo, setFoo] = useState(0);
-
-    return (
-        <div>
-            Global clicks: {clicks}<br />
-            Local clicks: {foo}<br />
-        <button onClick={update}>Global</button>
-        <button onClick={() => { setFoo(foo + 1) }}>Local</button>
-        </div>
-    );
-}
-
-class Prnt extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            clicks: 0,
-        };
-        this.update = this.update.bind(this);
-    }
-
-    update() {
-        this.setState({
-            clicks: this.state.clicks + 1,
-        });
-    }
-
-    render() {
-        return (
-            <Child update={this.update} clicks={this.state.clicks} />
-        );
-    }
-}
-
 export default function App() {
     const [run, setRun] = useState(false);
     const [stepIndex, setStepIndex] = useState(0);
@@ -81,8 +46,7 @@ export default function App() {
 
     return (
         <div className="app">
-            <Prnt />
-            {/* <Joyride
+            <Joyride
                 callback={handleJoyrideCallback}
                 run={run}
                 stepIndex={stepIndex}
@@ -91,7 +55,7 @@ export default function App() {
                 continuous
                 showProgress
                 showSkipButton
-            /> */}
+            />
         </div>
     );
 }
