@@ -13,3 +13,5 @@ npm run vite-dev
 
 After you run both instances (CRA and vite) try to navigate between steps.
 In the CRA instance it'd work but not in vite one.
+
+The React Joyride code is located in `src/App.jsx`.
